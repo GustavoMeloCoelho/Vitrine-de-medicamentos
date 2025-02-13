@@ -1,5 +1,6 @@
 import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from "typeorm";
 import { Medicamento } from "./Medicamento";
+import { Role } from "./Role"; // Add this line to import Role
 
 @Entity("users")
 export class User {
@@ -17,5 +18,7 @@ export class User {
 
   @OneToMany(() => Medicamento, (medicamento) => medicamento.user)
   medicamentos!: Medicamento[];
+
+  roles: Role[] = []; // Inicializado como array vazio para evitar undefined
 }
 
